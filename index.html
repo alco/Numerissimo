@@ -128,7 +128,9 @@ var testTemplate = ' \
             } else if (val == spelledNum || (spelledNum.constructor === Array && spelledNum.indexOf(val) >= 0)) {
                 parent.replaceWith('<p class="answer">' + val + ' <span class="tick">✓</span></p>');
             } else {
+                elem.addClass('wrong-answer')
                 if (parent.children('button').length === 0) {
+                    parent.append('<span class="xmark">✗</span>')
                     parent.append('<button class="answerBut" secret="' +id + '">Show answer</button>');
                 }
             }
@@ -141,7 +143,7 @@ var testTemplate = ' \
             var num = id.split('-').pop();
             var val = spellNumber(num);
 
-            elem.parent().replaceWith('<p class="correctedAnswer">' + val + '</p>');
+            elem.parent().replaceWith('<p class="correctedAnswer">' + val + '</p><p class="crossed-out-answer">' + elem.val().trim() + '</p>');
         });
 
       }) // end of jQuery
