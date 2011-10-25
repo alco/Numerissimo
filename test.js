@@ -72,7 +72,7 @@ $(function() {
       })
 
       var parent = elem.parent();
-      var val = elem.val().trim();
+      var val = elem.val().trim().toLowerCase();
       var id = elem.attr('id');
       var num = id.split('-').pop();
       var spelledNum = spellNumber(num);
