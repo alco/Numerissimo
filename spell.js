@@ -39,7 +39,7 @@ var numbers = numberData.numbers, ranks = numberData.ranks
 
 function spellNumber(num, rank) {
     if (num == 0)
-        return (rank ? "" : numbers[0])
+        return (rank === undefined ? numbers[0] : "")
 
     rank = rank || 0;
 
