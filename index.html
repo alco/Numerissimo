@@ -24,16 +24,16 @@
           <ul>
             <li><input type="checkbox" id="checkbox-1" checked="checked" />&nbsp;0–10</li>
             <li><input type="checkbox" id="checkbox-2" />&nbsp;11–19</li>
-            <li><input type="checkbox" id="checkbox-3" />&nbsp;20–90 (multiples of ten)</li>
-            <li><input type="checkbox" id="checkbox-4" />&nbsp;100–900 (multiples of 100)</li>
-            <li><input type="checkbox" id="checkbox-5" />&nbsp;1000 and more (multiples of 1000)</li>
+            <li><input type="checkbox" id="checkbox-3" />&nbsp;20–90 <i>(multiples of ten)</i></li>
+            <li><input type="checkbox" id="checkbox-4" />&nbsp;100–900 <i>(multiples of 100)</i></li>
+            <li><input type="checkbox" id="checkbox-5" />&nbsp;1000 and up <i>(multiples of 1000)</i></li>
           </ul>
         </div>
         <div class="choose-test">
           <ul>
-            <li><input type="checkbox" id="checkbox-6" />&nbsp;1–99 (all numbers)</li>
-            <li><input type="checkbox" id="checkbox-7" />&nbsp;100–999 (all numbers)</li>
-            <li><input type="checkbox" id="checkbox-8" />&nbsp;1000–... (all numbers)</li>
+            <li><input type="checkbox" id="checkbox-6" />&nbsp;20–99 <i>(all numbers)</i></li>
+            <li><input type="checkbox" id="checkbox-7" />&nbsp;100–999 <i>(all numbers)</i></li>
+            <li><input type="checkbox" id="checkbox-8" />&nbsp;1000 and up <i>(all numbers)</i></li>
           </ul>
         </div>
         <div id="start-test-button-container">
@@ -51,103 +51,6 @@
     <script type="text/javascript" src="mustache.js"></script>
     <script type="text/javascript" src="spell.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-
-var questionsData = {
-  'checkbox-1': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  'checkbox-2': [11, 12, 13, 14, 15, 16, 17, 18, 19],
-  'checkbox-3': [20, 30, 40, 50, 60, 70, 80, 90],
-  'checkbox-4': [100, 200, 300, 400, 500, 600, 700, 800, 900],
-  'checkbox-5': [1000, 1000000, 1000000000]
-}
-var testData = {
-}
-
-var testTemplate = ' \
-<div id="test-container"> \
-  <ul> \
-    {{#questions}} \
-    <li> \
-      <div class="test-entry"> \
-        <div class="test-number">{{.}}</div> \
-        <div class="test-input"> \
-          <input class="answer-field" type="text" id="input-{{.}}"/> \
-        </div> \
-      </div> \
-    </li> \
-    {{/questions}} \
-  </ul> \
-  <div id="finish-test"> \
-    <button id="finish-test-button">Check answers</button> \
-  </div> \
-</div>';
-
-      //<![CDATA[
-      $(document).ready(function() {
-
-        console.log(window.location);
-
-
-        var showingBorders = false
-        $('#show-borders-button').click(function() {
-          if (showingBorders)
-            $('div').removeClass('bordered')
-          else
-            $('div').addClass('bordered')
-          showingBorders = !showingBorders
-        })
-
-        $('#start-test-button').click(function() {
-          testData.questions = []
-          var selectedCheckboxCount = 0
-          $('input[type="checkbox"]').each(function() {
-            if (this.checked) {
-              ++selectedCheckboxCount;
-              testData.questions = testData.questions.concat(questionsData[this.id])
-            }
-          })
-          if (selectedCheckboxCount) {
-              $('#test-container').replaceWith(Mustache.to_html(testTemplate, testData))
-            $('#no-test-selected-tip').addClass('hidden')
-          } else {
-            $('#no-test-selected-tip').removeClass('hidden')
-          }
-        })
-
-        $('#finish-test-button').live('click', function() {
-          $('input.answer-field').each(function() {
-            var elem = $(this);
-            var parent = elem.parent();
-            var val = elem.val().trim();
-            var id = elem.attr('id');
-            var num = id.split('-').pop();
-            var spelledNum = spellNumber(num);
-            if (val.length === 0) {
-                // no answer = no action
-            } else if (val == spelledNum || (spelledNum.constructor === Array && spelledNum.indexOf(val) >= 0)) {
-                parent.replaceWith('<p class="answer">' + val + ' <span class="tick">✓</span></p>');
-            } else {
-                elem.addClass('wrong-answer')
-                if (parent.children('button').length === 0) {
-                    parent.append('<span class="xmark">✗</span>')
-                    parent.append('<button class="answerBut" secret="' +id + '">Show answer</button>');
-                }
-            }
-          });
-        })
-
-        $(".answerBut").live('click', function() {
-            var id = $(this).attr('secret');
-            var elem = $('#'+id);
-            var num = id.split('-').pop();
-            var val = spellNumber(num);
-
-            elem.parent().replaceWith('<p class="correctedAnswer">' + val + '</p><p class="crossed-out-answer">' + elem.val().trim() + '</p>');
-        });
-
-      }) // end of jQuery
-      //]]>
-    </script>
-
+    <script type="text/javascript" src="test.js"></script>
   </body>
 </html>
