@@ -7,6 +7,16 @@ var questionsData = {
 }
 
 var testData = {
+  pretty_print: function() {
+    return function(text, render) {
+      var result = render(text).trim()
+      console.log('result = ' + result + '; text = ' + text)
+      if (result.length >= 5) {
+        result = '10<sup>' + (result.length - 1)  + '</sup>'
+      }
+      return result
+    }
+  }
 }
 
 var testTemplate = ' \
@@ -15,7 +25,7 @@ var testTemplate = ' \
     {{#questions}} \
     <li> \
       <div class="test-entry"> \
-        <div class="test-number">{{.}}</div> \
+        <div class="test-number">{{#pretty_print}} {{.}} {{/pretty_print}}</div> \
         <div class="test-input"> \
           <input class="answer-field" type="text" id="input-{{.}}"/> \
         </div> \
