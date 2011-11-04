@@ -10,7 +10,6 @@ var testData = {
   pretty_print: function() {
     return function(text, render) {
       var result = render(text).trim()
-      console.log('result = ' + result + '; text = ' + text)
       if (result.length >= 5) {
         result = '10<sup>' + (result.length - 1)  + '</sup>'
       }
@@ -39,12 +38,21 @@ var testTemplate = ' \
   </div> \
 </div>';
 
+function expandRange(range) {
+  var result = new Set()
+  var limit = range[1];
+  for (var i = range[0]; i <= limit; ++i)
+    result.add(i)
+  return result
+}
 
 $(function() {
   console.log(window.location);
 
   var userAnswerCount
   var totalAnswerCount
+  var testCount
+  var testRange
 
   var showingBorders = false
   $('#show-borders-button').click(function() {
@@ -56,15 +64,40 @@ $(function() {
   })
 
   $('#start-test-button').click(function() {
-    testData.questions = []
+    testData.questions = new Set()
     var selectedCheckboxCount = 0
+    var allNumberTestSelected = false
+    testCount = $('#number-of-tests-switch').val()
     $('input[type="checkbox"]').each(function() {
       if (this.checked) {
         ++selectedCheckboxCount;
-        testData.questions = testData.questions.concat(questionsData[this.id])
+        questions = questionsData[this.id]
+        if (questions !== undefined) {
+          testData.questions.join(new Set(questions))
+        } else {
+          allNumberTestSelected = true
+          var range = [0, 0]
+          if (this.id == 'checkbox-6')
+            range = [20, 99]
+          else if (this.id == 'checkbox-7')
+            range = [100, 999]
+//          else
+//            range = [1000, 1e9]
+          testData.questions.join(expandRange(range))
+        }
       }
     })
     if (selectedCheckboxCount) {
+      console.log('All questions = ' + testData.questions.items())
+      if (allNumberTestSelected) {
+        var questions = []
+        for (var i = 0; i < testCount; ++i)
+          questions.push(testData.questions.pick())
+        console.log('testRange = ' + testRange + ';questions = ' + questions)
+        testData.questions = questions
+      } else {
+        testData.questions = testData.questions.items()
+      }
       userAnswerCount = 0
       totalAnswerCount = testData.questions.length
       $('#test-container').replaceWith(Mustache.to_html(testTemplate, testData))
