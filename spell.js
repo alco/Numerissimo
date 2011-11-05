@@ -60,7 +60,7 @@ function spellNumber(num, rank) {
 var spellingRules = [
     'xy= spellNumber(x0) + "-" + spellNumber(y)',
     'x00= spellNumber(x) + " hundred"',
-    'xyy= spellNumber(x) + " hundred and " + spellNumber(y)'
+    'xyy= spellNumber(x) + " hundred " + spellNumber(y)'
 ]
 function parseNumber(num) {
     var lookup = numbers[num]
