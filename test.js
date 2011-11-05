@@ -26,7 +26,7 @@ var testTemplate = ' \
       <div class="test-entry"> \
         <div class="test-number">{{#pretty_print}} {{.}} {{/pretty_print}}</div> \
         <div class="test-input"> \
-          <input class="answer-field" type="text" id="input-{{.}}"/> \
+          <input class="answer-field" type="text" id="input-{{.}}"> \
         </div> \
       </div> \
     </li> \
