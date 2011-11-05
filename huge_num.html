@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="Alexei Sholik">
+  <meta name="keywords" content="numerals, numbers, language learning, test, cheat-sheet">
+  <meta name="description" content="Learn how to spell numerals in a foreign language while having fun.">
+  <meta name="robots" content="all">
+
+  <title>Numerissimo</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="body">
+  <div id="container">
+    <div id="header">
+      <h1>Ridiculously Huge Number Test</h1>
+    </div>
+
+    <div id="start-test-button-container">
+      <button id="start-test-button">Start test</button>
+      <button id="show-borders-button">Show borders</button>
+      <div id="no-test-selected-tip" class="hidden">
+        <p>Select at least one item to get started</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="test-container">
+    <div class="test-entry">
+      <div class="test-number" id="test-number"></div>
+      <div class="test-input">
+        <input class="answer-field" type="text" id="test-input">
+      </div>
+    </div>
+    <div id="finish-test">
+      <button id="finish-test-button">Check answer</button>
+      <button id="showAnswersBut">Show answer</button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="mustache.js"></script>
+  <script type="text/javascript" src="spell.js"></script>
+  <script type="text/javascript" src="huge_num.js"></script>
+  <script type="text/javascript" src="set.js"></script>
+</body>
+
+</html>
