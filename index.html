@@ -10,7 +10,7 @@
 
   <title>Numerissimo</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="main_style.css">
 </head>
 
 <body id="body">
@@ -19,36 +19,75 @@
       <h1>Numerissimo</h1>
     </div>
 
-    <div id="choose-test-container">
-      <div class="choose-test">
-        <ul>
-          <li><input type="checkbox" id="checkbox-1" checked="checked">&nbsp;0–10</li>
-          <li><input type="checkbox" id="checkbox-2">&nbsp;11–19</li>
-          <li><input type="checkbox" id="checkbox-3">&nbsp;20–90 <i>(multiples of ten)</i></li>
-          <li><input type="checkbox" id="checkbox-4">&nbsp;100–900 <i>(multiples of 100)</i></li>
-          <li><input type="checkbox" id="checkbox-5">&nbsp;1000 and up <i>(multiples of 1000)</i></li>
-        </ul>
-      </div>
-      <div class="choose-test">
-        <ul>
-          <li><input type="checkbox" id="checkbox-6">&nbsp;20–99 <i>(all numbers)</i></li>
-          <li><input type="checkbox" id="checkbox-7">&nbsp;100–999 <i>(all numbers)</i></li>
-          <li><input type="checkbox" id="checkbox-8">&nbsp;1000 and up <i>(all numbers)</i></li>
-        </ul>
-      </div>
+    <div id="greeting-container">
+      <h2>Welcome back, <a href="#">username</a></h2>
+    </div>
 
-      <select id="number-of-tests-switch">
-        <option>10</option>
-      </select>
+    <h3>Basic topics</h3>
 
-      <div id="start-test-button-container">
-        <button id="start-test-button">Start test</button>
-        <button id="show-borders-button">Show borders</button>
-        <div id="no-test-selected-tip" class="hidden">
-          <p>Select at least one item to get started</p>
-        </div>
+    <div class="choose-test-container">
+      <div class="test-item">
+        <p class="test-name"><a href="#">Basic numerals</a></p>
+        <p>This quiz will help you get started with the most basic numbers.</p>
+        <p>You have to memorize the numbers in this category before trying more advanced quizes.</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Cardinal numbers</a></p>
+        <p>In this category you can test your knowledge of cardinal numbers starting from 0 and going up to one billion.</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Ordinal numbers</a></p>
+        <p>Ordinal numbers may seem a little challenging at first sight. But once you have familiarized yourself with a few simple rules, you'll be spelling out numbers like crazy.</p>
       </div>
     </div>
+
+    <h3>More involved topics</h3>
+
+    <div class="choose-test-container">
+      <div class="test-item">
+        <p class="test-name"><a href="#">Fractions and decimals</a></p>
+        <p>From ½ to 15/16 and from <i>e</i> to π</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Counting suffixes</a></p>
+        <p>(Japanese only)</p>
+      </div>
+    </div>
+
+    <h3>Numbers in daily use</h3>
+
+    <div class="choose-test-container">
+      <div class="test-item">
+        <p class="test-name"><a href="#">Numbers with nouns</a></p>
+        <p>A quick introduction to using numbers with nouns like you would in a conversation or in writing.</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Expressing time</a></p>
+        <p>Learn how to say what time is (or was, or will be) and get yourself up to speed with understanding time expressions in your target language.</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Naming dates</a></p>
+        <p>Familiarize yourself with the correct way of naming days of week, months, years and dates in general.</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Age of a person</a></p>
+        <p>Learn how to says how old someone is.</p>
+      </div>
+    </div>
+
+    <h3>Advanced trickery</h3>
+
+    <div class="choose-test-container">
+      <div class="test-item">
+        <p class="test-name"><a href="#">Conjugating numerals</a></p>
+        <p>(Russian only)</p>
+      </div>
+      <div class="test-item">
+        <p class="test-name"><a href="#">Numbers in math</a></p>
+        <p>Gotta come up with some content for this one.</p>
+      </div>
+    </div>
+
   </div>
 
   <div id="test-container"></div>
