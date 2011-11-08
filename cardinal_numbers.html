@@ -8,7 +8,7 @@
   <meta name="description" content="Learn how to spell numerals in a foreign language while having fun.">
   <meta name="robots" content="all">
 
-  <title>Basic Numerals - Numerissimo</title>
+  <title>Cardinal Numbers - Numerissimo</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -16,19 +16,25 @@
 <body id="body">
   <div id="container">
     <div id="header">
-      <a href="index.html"><img src="home.png" alt="Home" title="Home"></a><h1>Basic Numeral Test</h1>
+      <a href="index.html"><img src="home.png" alt="Home" title="Home"></a><h1>Cardinal Number Test</h1>
     </div>
 
     <div id="choose-test-container">
       <div class="choose-test">
         <ul>
-          <li><input type="checkbox" id="checkbox-1" checked="checked">&nbsp;0–10</li>
-          <li><input type="checkbox" id="checkbox-2">&nbsp;11–19</li>
-          <li><input type="checkbox" id="checkbox-3">&nbsp;20–90 <i>(multiples of ten)</i></li>
-          <li><input type="checkbox" id="checkbox-4">&nbsp;100–900 <i>(multiples of 100)</i></li>
-          <li><input type="checkbox" id="checkbox-5">&nbsp;1000 and up <i>(multiples of 1000)</i></li>
+          <li><input type="checkbox" id="checkbox-6">&nbsp;20–99 <i>(all numbers)</i></li>
+          <li><input type="checkbox" id="checkbox-7">&nbsp;100–999 <i>(all numbers)</i></li>
+          <li><input type="checkbox" id="checkbox-8">&nbsp;1000 and up <i>(all numbers)</i></li>
         </ul>
       </div>
+
+      <select id="number-of-tests-switch">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
 
       <div id="start-test-button-container">
         <button id="start-test-button">Start test</button>
@@ -45,7 +51,7 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script type="text/javascript" src="mustache.js"></script>
   <script type="text/javascript" src="spell.js"></script>
-  <script type="text/javascript" src="basic_numerals.js"></script>
+  <script type="text/javascript" src="cardinal_numbers.js"></script>
   <script type="text/javascript" src="set.js"></script>
 </body>
 

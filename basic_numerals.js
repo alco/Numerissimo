@@ -38,28 +38,11 @@ var testTemplate = ' \
   </div> \
 </div>';
 
-var selectTemplate = ' \
-<select id="number-of-tests-switch"> \
-  {{#options}} \
-  <option>{{.}}</option> \
-  {{/options}} \
-</select>';
-
-function expandRange(range) {
-  var result = new Set()
-  var limit = range[1];
-  for (var i = range[0]; i <= limit; ++i)
-    result.add(i)
-  return result
-}
-
 $(function() {
   console.log(window.location);
 
   var userAnswerCount
   var totalAnswerCount
-  var testCount
-  var testRange
 
   var showingBorders = false
   $('#show-borders-button').click(function() {
@@ -71,41 +54,18 @@ $(function() {
   })
 
   $('#start-test-button').click(function() {
-    testData.questions = new Set()
+    testData.questions = []
     var selectedCheckboxCount = 0
-    var allNumberTestSelected = false
 
-    testCount = $('#number-of-tests-switch').val()
     $('input[type="checkbox"]').each(function() {
       if (this.checked) {
         ++selectedCheckboxCount;
         questions = questionsData[this.id]
-        if (questions !== undefined) {
-          testData.questions.join(new Set(questions))
-        } else {
-          allNumberTestSelected = true
-          var range = [0, 0]
-          if (this.id == 'checkbox-6')
-            range = [20, 99]
-          else if (this.id == 'checkbox-7')
-            range = [100, 999]
-//          else
-//            range = [1000, 1e9]
-          testData.questions.join(expandRange(range))
-        }
+        testData.questions = testData.questions.concat(questions)
       }
     })
     if (selectedCheckboxCount) {
 //      console.log('All questions = ' + testData.questions.items())
-      if (allNumberTestSelected) {
-        var questions = []
-        for (var i = 0; i < testCount; ++i)
-          questions.push(testData.questions.pick())
-//        console.log('testRange = ' + testRange + ';questions = ' + questions)
-        testData.questions = questions
-      } else {
-        testData.questions = testData.questions.items()
-      }
       userAnswerCount = 0
       totalAnswerCount = testData.questions.length
       $('#test-container').replaceWith(Mustache.to_html(testTemplate, testData))
@@ -163,35 +123,6 @@ $(function() {
         parent.replaceWith('<p class="correctedAnswer">' + spelledNum + '</p><p class="crossed-out-answer">' + val + '</p>');
       }
     })
-  })
-
-  $('input[type="checkbox"]').click(function() {
-    var questions
-    var questionRange = new Set()
-    $('input[type="checkbox"]').each(function() {
-      if (this.checked) {
-        questions = questionsData[this.id]
-        if (questions !== undefined) {
-          questionRange.join(new Set(questions))
-        } else {
-          var range = [0, 0]
-          if (this.id == 'checkbox-6')
-            range = [20, 99]
-          else if (this.id == 'checkbox-7')
-            range = [100, 999]
-          questionRange.join(expandRange(range))
-        }
-      }
-    })
-
-    var len = questionRange.length
-    var options = []
-    for (var i = 10; i <= 50 && i <= len; i += 10)
-      options.push(i)
-
-    var selectData = { 'options': options }
-    var elem = $('#number-of-tests-switch')
-    elem.replaceWith(Mustache.to_html(selectTemplate, selectData))
   })
 
 }) // end of jQuery
