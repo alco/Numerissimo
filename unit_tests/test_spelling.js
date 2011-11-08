@@ -28,21 +28,21 @@ test("1 to 99", function() {
 test("100 to 999", function() {
   var answers = {
     100: 'one hundred',
-    101: 'one hundred and one',
-    102: 'one hundred and two',
-    109: 'one hundred and nine',
-    110: 'one hundred and ten',
-    120: 'one hundred and twenty',
-    121: 'one hundred and twenty-one',
-    198: 'one hundred and ninety-eight',
-    199: 'one hundred and ninety-nine',
+    101: 'one hundred one',
+    102: 'one hundred two',
+    109: 'one hundred nine',
+    110: 'one hundred ten',
+    120: 'one hundred twenty',
+    121: 'one hundred twenty-one',
+    198: 'one hundred ninety-eight',
+    199: 'one hundred ninety-nine',
     200: 'two hundred',
-    203: 'two hundred and three',
-    204: 'two hundred and four',
-    211: 'two hundred and eleven',
-    212: 'two hundred and twelve',
-    232: 'two hundred and thirty-two',
-    299: 'two hundred and ninety-nine',
+    203: 'two hundred three',
+    204: 'two hundred four',
+    211: 'two hundred eleven',
+    212: 'two hundred twelve',
+    232: 'two hundred thirty-two',
+    299: 'two hundred ninety-nine',
     300: 'three hundred',
     400: 'four hundred',
     500: 'five hundred',
@@ -50,7 +50,7 @@ test("100 to 999", function() {
     700: 'seven hundred',
     800: 'eight hundred',
     900: 'nine hundred',
-    999: 'nine hundred and ninety-nine'
+    999: 'nine hundred ninety-nine'
   }
   testSpelling(answers)
 })
@@ -65,19 +65,19 @@ test("1000 to 1000000", function() {
     90000: 'ninety thousand',
     30000: 'thirty thousand',
 
-    1346: 'one thousand three hundred and forty-six',
-    11482: 'eleven thousand four hundred and eighty-two',
-    13851: 'thirteen thousand eight hundred and fifty-one',
+    1346: 'one thousand three hundred forty-six',
+    11482: 'eleven thousand four hundred eighty-two',
+    13851: 'thirteen thousand eight hundred fifty-one',
     23016: 'twenty-three thousand sixteen',
     100000: 'one hundred thousand',
-    750000: 'seven hundred and fifty thousand',
-    934756: 'nine hundred and thirty-four thousand seven hundred and fifty-six',
+    750000: 'seven hundred fifty thousand',
+    934756: 'nine hundred thirty-four thousand seven hundred fifty-six',
 
     1000000: 'one million',
-    143000000: 'one hundred and forty-three million',
-    143007000: 'one hundred and forty-three million seven thousand',
-    2408701047: 'two billion four hundred and eight million seven hundred and one thousand forty-seven',
-    10680040002031: 'ten trillion six hundred and eighty billion forty million two thousand thirty-one'
+    143000000: 'one hundred forty-three million',
+    143007000: 'one hundred forty-three million seven thousand',
+    2408701047: 'two billion four hundred eight million seven hundred one thousand forty-seven',
+    10680040002031: 'ten trillion six hundred eighty billion forty million two thousand thirty-one'
   }
   testSpelling(answers)
 })
