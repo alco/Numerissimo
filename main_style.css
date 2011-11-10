@@ -3,6 +3,8 @@ h1 { text-align: center }
 #greeting-container { text-align: center }
 #greeting-container a { color: #060; text-decoration: none; border-bottom: 1px dashed }
 
+#recent-news { border: 1px dashed; background-color: #ffeecd; width: 500px; }
+
 body {
     font-family: sans-serif
 }
