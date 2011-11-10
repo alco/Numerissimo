@@ -105,8 +105,21 @@ function parseNumber(num) {
         var lhs = ruleComponents[0]
         var rhs = ruleComponents[1]
         mapping = matchPattern(lhs, numString)
-        return eval(expandMacros(rhs, mapping))
+        return evalRule(expandMacros(rhs, mapping))
     }
+}
+
+// TODO: rewrite this function to support nicely formatted rules
+//
+// Ideally, rules will look as follows
+// ab = {a0}-{b}
+// a00 = {a} hundred
+// axx = {a} hundred [and] {x}
+//
+// Can we get rid of the second rule? Yes if we allow spelling zero if and only if it goes all by itself
+// and not as part of a larger number
+function evalRule(rule) {
+    return eval(rule)
 }
 
 function matchPattern(pattern, numString) {
@@ -125,6 +138,7 @@ function expandMacros(string, mapping) {
     return result
 }
 
+// TODO: refactor bestMatch
 function bestMatch(numString, rules) {
     var candidates = [];
     for (var i = 0; i < rules.length; ++i) {
